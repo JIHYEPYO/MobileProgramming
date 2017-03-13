@@ -1,7 +1,9 @@
 package kr.ac.kmu.cs.calculator;
 
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,18 +35,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonClick(View v){
-        switch (v.getId()){
-            case R.id.buttonPlus:
-                editTextResult.setText(Integer.parseInt(editTextNum1.getText().toString())+Integer.parseInt(editTextNum2.getText().toString()));
+        int num1 = Integer.parseInt(editTextNum1.getText().toString());
+        int num2 = Integer.parseInt(editTextNum2.getText().toString());
+
+        switch (((Button) v).getText().toString()){
+            case "+":
+                editTextResult.setText(Integer.toString(num1+num2));
                 break;
-            case R.id.buttonMinus:
-                editTextResult.setText(Integer.parseInt(editTextNum1.getText().toString())-Integer.parseInt(editTextNum2.getText().toString()));
+            case "-":
+                editTextResult.setText(Integer.toString(num1-num2));
                 break;
-            case R.id.buttonMul:
-                editTextResult.setText(Integer.parseInt(editTextNum1.getText().toString())*Integer.parseInt(editTextNum2.getText().toString()));
+            case "*":
+                editTextResult.setText(Integer.toString(num1*num2));
                 break;
-            case R.id.buttonDiv:
-                editTextResult.setText(Integer.parseInt(editTextNum1.getText().toString())/Integer.parseInt(editTextNum2.getText().toString()));
+            case "/":
+                editTextResult.setText(Integer.toString(num1/num2));
                 break;
         }
     }

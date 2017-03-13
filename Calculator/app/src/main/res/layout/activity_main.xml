@@ -4,11 +4,11 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="kr.ac.kmu.cs.calculator.MainActivity">
 
     <LinearLayout
@@ -22,11 +22,11 @@
             android:text="Number 1" />
 
         <EditText
+            android:id="@+id/editTextNum1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextNum1" />
+            android:inputType="number" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,40 +40,40 @@
             android:text="Number 2" />
 
         <EditText
+            android:id="@+id/editTextNum2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextNum2" />
+            android:inputType="number" />
     </LinearLayout>
 
     <Button
-        android:text="+"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/buttonPlus"
-        android:onClick="onButtonClick (MainActivity)" />
-
-    <Button
-        android:text="-"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="+" />
+
+    <Button
         android:id="@+id/buttonMinus"
-        android:onClick="onButtonClick (MainActivity)"/>
-
-    <Button
-        android:text="*"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="-" />
+
+    <Button
         android:id="@+id/buttonMul"
-        android:onClick="onButtonClick (MainActivity)"/>
-
-    <Button
-        android:text="/"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="*" />
+
+    <Button
         android:id="@+id/buttonDiv"
-        android:onClick="onButtonClick (MainActivity)"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="/" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,11 +86,11 @@
             android:text="Result" />
 
         <EditText
+            android:id="@+id/editTextResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextResult" />
+            android:inputType="number" />
     </LinearLayout>
 
 
