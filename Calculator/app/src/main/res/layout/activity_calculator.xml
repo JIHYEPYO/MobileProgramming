@@ -10,20 +10,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cursorVisible="false"
+        android:inputType="numberDecimal"
+        android:text="0"
         android:gravity="end" />
 
-    <Button
-        android:id="@+id/buttonOk"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="ok" />
+        android:layout_below="@id/editTextOk"
+        android:id="@+id/relative">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DELETE"
+            android:id="@+id/buttonDelete"
+            android:onClick ="onButtonDeleteClick"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/buttonOk"
-        android:layout_below="@id/editTextOk">
+        android:layout_below="@+id/relative">
 
         <TableRow android:layout_weight="1">
 
@@ -49,7 +59,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onButtonNumberClick"
+
                 android:text="3" />
+
+            <Button
+                android:id="@+id/buttonDiv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onButtonCalculateClick"
+                android:background="@color/colorGray"
+                android:text="/" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
@@ -77,6 +97,16 @@
                 android:layout_weight="1"
                 android:onClick="onButtonNumberClick"
                 android:text="6" />
+
+            <Button
+                android:id="@+id/buttonMul"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onButtonCalculateClick"
+                android:background="@color/colorGray"
+                android:text="*" />
+
         </TableRow>
 
         <TableRow android:layout_weight="1">
@@ -104,14 +134,26 @@
                 android:layout_weight="1"
                 android:onClick="onButtonNumberClick"
                 android:text="9" />
+
+            <Button
+                android:id="@+id/buttonMinus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onButtonCalculateClick"
+                android:background="@color/colorGray"
+                android:text="-" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
-            <TextView
+            <Button
+                android:id="@+id/buttonPoint"
                 android:layout_width="0dp"
+                android:text="."
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="onButtonNumberClick" />
 
             <Button
                 android:id="@+id/button0"
@@ -122,12 +164,22 @@
                 android:text="0" />
 
             <Button
-                android:id="@+id/buttonClear"
+                android:id="@+id/buttonEqual"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onButtonNumberClick"
-                android:text="clear" />
+                android:onClick="onButtonCalculateClick"
+                android:background="@color/colorGray"
+                android:text="=" />
+
+            <Button
+                android:id="@+id/buttonPlus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onButtonCalculateClick"
+                android:background="@color/colorGray"
+                android:text="+" />
         </TableRow>
 
     </TableLayout>

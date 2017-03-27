@@ -20,10 +20,23 @@ public class CalculatorActivity extends AppCompatActivity {
     Button button8;
     Button button9;
     Button button0;
-    Button buttonClear;
+    Button buttonPoint;
+    Button buttonEqual;
+    Button buttonPlus;
+    Button buttonMinus;
+    Button buttonMul;
+    Button buttonDiv;
+    Button buttonDelete;
 
     EditText editTextOK;
-    Button buttonOK;
+
+    double num;
+    double result;
+    String cal;
+    boolean equalClick;
+    boolean calClick;
+    boolean pointClick;
+    boolean editZero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,48 +53,138 @@ public class CalculatorActivity extends AppCompatActivity {
         button8 = (Button) findViewById(R.id.button8);
         button9 = (Button) findViewById(R.id.button9);
         button0 = (Button) findViewById(R.id.button0);
-        buttonClear = (Button) findViewById(R.id.buttonClear);
+        buttonPoint = (Button) findViewById(R.id.buttonPoint);
+        buttonEqual = (Button) findViewById(R.id.buttonEqual);
+        buttonPlus = (Button) findViewById(R.id.buttonPlus);
+        buttonMinus = (Button) findViewById(R.id.buttonMinus);
+        buttonMul = (Button) findViewById(R.id.buttonMul);
+        buttonDiv = (Button) findViewById(R.id.buttonDiv);
+        buttonDelete = (Button) findViewById(R.id.buttonDelete);
 
         editTextOK = (EditText) findViewById(R.id.editTextOk);
-        buttonOK = (Button) findViewById(R.id.buttonOk);
+        num = 0;
+        result = 0;
+        cal = "";
+        equalClick = false;
+        calClick = false;
+        pointClick = false;
+        editZero = true;
     }
 
     public void onButtonNumberClick(View v) {
-        String edit = editTextOK.getText().toString();
+
         switch (((Button) v).getText().toString()) {
             case "1":
-                editTextOK.setText(edit + Integer.parseInt(button1.getText().toString()));
+                PrintNum(1, button1);
                 break;
             case "2":
-                editTextOK.setText(edit + Integer.parseInt(button2.getText().toString()));
+                PrintNum(2, button2);
                 break;
             case "3":
-                editTextOK.setText(edit + Integer.parseInt(button3.getText().toString()));
+                PrintNum(3, button3);
                 break;
             case "4":
-                editTextOK.setText(edit + Integer.parseInt(button4.getText().toString()));
+                PrintNum(4, button4);
                 break;
             case "5":
-                editTextOK.setText(edit + Integer.parseInt(button5.getText().toString()));
+                PrintNum(5, button5);
                 break;
             case "6":
-                editTextOK.setText(edit + Integer.parseInt(button6.getText().toString()));
+                PrintNum(6, button6);
                 break;
             case "7":
-                editTextOK.setText(edit + Integer.parseInt(button7.getText().toString()));
+                PrintNum(7, button7);
                 break;
             case "8":
-                editTextOK.setText(edit + Integer.parseInt(button8.getText().toString()));
+                PrintNum(8, button8);
                 break;
             case "9":
-                editTextOK.setText(edit + Integer.parseInt(button9.getText().toString()));
+                PrintNum(9, button9);
                 break;
             case "0":
-                editTextOK.setText(edit + Integer.parseInt(button0.getText().toString()));
+                PrintNum(0, button0);
                 break;
-            case "clear":
-                editTextOK.setText("");
+            case ".":
+                if (!pointClick) {
+                    editTextOK.setText(editTextOK.getText().toString() + ".");
+                    pointClick = true;
+                }
                 break;
         }
+    }
+
+    public void onButtonCalculateClick(View v) {
+        switch (((Button) v).getText().toString()) {
+            case "+":
+                Calculate();
+                cal = "+";
+                break;
+            case "-":
+                Calculate();
+                cal = "-";
+                break;
+            case "*":
+                Calculate();
+                cal = "*";
+                break;
+            case "/":
+                Calculate();
+                cal = "/";
+                break;
+            case "=":
+                Calculate();
+                equalClick = true;
+                pointClick = false;
+                result = 0;
+                num = 0;
+                cal = "";
+                break;
+        }
+    }
+
+    public void onButtonDeleteClick(View v) {
+        editTextOK.setText("0");
+        editZero = true;
+        pointClick = false;
+        result = 0;
+        num = 0;
+    }
+
+    public void Calculate() {
+        switch (cal) {
+            case "+":
+                result += Double.parseDouble(editTextOK.getText().toString());
+                break;
+            case "-":
+                result -= Double.parseDouble(editTextOK.getText().toString());
+                break;
+            case "*":
+                result *= Double.parseDouble(editTextOK.getText().toString());
+                break;
+            case "/":
+                result /= Double.parseDouble(editTextOK.getText().toString());
+                break;
+            case "":
+                result = Double.parseDouble(editTextOK.getText().toString());
+                break;
+            default:
+        }
+        pointClick = false;
+        calClick = true;
+        editTextOK.setText(Double.toString(result));
+        num = Double.parseDouble(editTextOK.getText().toString());
+    }
+
+    public void PrintNum(int num, Button btn) {
+        String edit = editTextOK.getText().toString();
+
+        if (equalClick || calClick || editZero) {
+            editTextOK.setText(Integer.toString(num));
+            editZero = false;
+        } else {
+            editTextOK.setText(edit + Integer.parseInt(btn.getText().toString()));
+        }
+        calClick = false;
+        equalClick = false;
     }
 }
