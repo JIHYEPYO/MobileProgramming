@@ -10,23 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cursorVisible="false"
+        android:gravity="end"
         android:inputType="numberDecimal"
-        android:text="0"
-        android:gravity="end" />
+        android:text="0" />
 
     <RelativeLayout
+        android:id="@+id/relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextOk"
-        android:id="@+id/relative">
+        android:layout_below="@id/editTextOk">
 
         <Button
+            android:id="@+id/buttonDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DELETE"
-            android:id="@+id/buttonDelete"
-            android:onClick ="onButtonDeleteClick"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:onClick="onButtonDeleteClick"
+            android:text="DELETE" />
 
     </RelativeLayout>
 
@@ -67,8 +67,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onButtonCalculateClick"
                 android:background="@color/colorGray"
+                android:onClick="onButtonCalculateClick"
                 android:text="/" />
         </TableRow>
 
@@ -103,8 +103,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onButtonCalculateClick"
                 android:background="@color/colorGray"
+                android:onClick="onButtonCalculateClick"
                 android:text="*" />
 
         </TableRow>
@@ -140,8 +140,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onButtonCalculateClick"
                 android:background="@color/colorGray"
+                android:onClick="onButtonCalculateClick"
                 android:text="-" />
         </TableRow>
 
@@ -150,10 +150,10 @@
             <Button
                 android:id="@+id/buttonPoint"
                 android:layout_width="0dp"
-                android:text="."
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onButtonNumberClick" />
+                android:onClick="onButtonNumberClick"
+                android:text="." />
 
             <Button
                 android:id="@+id/button0"
@@ -168,8 +168,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onButtonCalculateClick"
                 android:background="@color/colorGray"
+                android:onClick="onButtonCalculateClick"
                 android:text="=" />
 
             <Button
@@ -177,8 +177,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="onButtonCalculateClick"
                 android:background="@color/colorGray"
+                android:onClick="onButtonCalculateClick"
                 android:text="+" />
         </TableRow>
 
