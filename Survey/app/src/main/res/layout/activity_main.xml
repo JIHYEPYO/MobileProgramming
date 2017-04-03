@@ -53,6 +53,7 @@
         android:layout_below="@+id/button"
         android:layout_marginTop="48dp"
         android:src="@mipmap/ic_launcher"
+        android:id="@+id/imageView"
         android:layout_alignLeft="@id/button"/>
 
 </RelativeLayout>

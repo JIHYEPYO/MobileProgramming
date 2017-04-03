@@ -12,14 +12,14 @@ import android.widget.RadioGroup;
 public class MainActivity extends AppCompatActivity {
 
     RadioGroup radioGroup;
-    RadioButton radioButton1,radioButton2,radioButton3;
+    RadioButton radioButton1, radioButton2, radioButton3;
     Button button;
     ImageView imageView;
 
     View.OnClickListener radio_listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (radioGroup.getCheckedRadioButtonId()){
+            switch (radioGroup.getCheckedRadioButtonId()) {
                 case R.id.radio1:
                     imageView.setImageResource(R.drawable.image0);
                     break;
@@ -37,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        radioGroup=(RadioGroup)findViewById(R.id.radioGroup);
-        radioButton1=(RadioButton)findViewById(R.id.radio1);
-        radioButton2=(RadioButton)findViewById(R.id.radio2);
-        radioButton3=(RadioButton)findViewById(R.id.radio3);
-        button=(Button)findViewById(R.id.button);
-        imageView=(ImageView) findViewById(R.id.image);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioButton1 = (RadioButton) findViewById(R.id.radio1);
+        radioButton2 = (RadioButton) findViewById(R.id.radio2);
+        radioButton3 = (RadioButton) findViewById(R.id.radio3);
+        button = (Button) findViewById(R.id.button);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
         radioButton1.setOnClickListener(radio_listener);
         radioButton2.setOnClickListener(radio_listener);
