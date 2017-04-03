@@ -13,24 +13,46 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="현재 사용중인 안드로이드 버전은?" />
+        android:text="현재 사용중인 안드로이드 버전은?"
+        android:id="@+id/text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:id="@+id/radioGroup">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2.3.3"/>
+            android:text="2.3.3"
+            android:id="@+id/radio1"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4.1"/>
+            android:text="4.1"
+            android:id="@+id/radio2"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4.4R"/>
-
+            android:text="4.4"
+            android:id="@+id/radio3"/>
     </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:text="Display Image"
+        android:id="@+id/button"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="48dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignLeft="@id/button"/>
+
 </RelativeLayout>
